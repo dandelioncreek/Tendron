@@ -8,7 +8,8 @@ public void setup()
 public void draw()
 {
   background(255);
-  Cluster c = new Cluster(50, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
+  Cluster c = new Cluster(20, width/2, height/2); // initial number of segments in the tendril and starting (x,y) coordinate
+  c.show();
 }
 public void mousePressed()
 {
