@@ -1,35 +1,43 @@
 class Tendril {
  int num, startX, startY, endX, endY, len;
  double myAngle;
- Tendril(int n, int myX, int myY){
+ boolean b;
+ Cluster c;
+ Tendril(int n, int myX, int myY, boolean myB){
   num = n;
   startX = myX;
   startY = myY;
+  b = myB;
   myAngle = Math.random()*2*PI;
   len = (int)(Math.random()*10);
-  void recursion {
-    if (num < 3){
-      Cluster c = new Cluster(20, width/2, height/2); // initial number of segments in the tendril and starting (x,y) coordinate
-      c.show();
-    }
-    else {
-      for
-    }
-  }
+  //public void recursion(int num, int x, int y){
+    //if (num < 3){
+    //  c = new Cluster(20, width/2, height/2); // initial number of segments in the tendril and starting (x,y) coordinate
+    //  //c.show();
+    //}
+  //  else {
+  //    recursion(
+  //  }
+  //}
  }
  void show(){
+  stroke(40+num*10, 10+num, 10+num*12); //purple
+  if (b)stroke(120-num*15, num+40, num*12); //withered
   for (int i  = 0; i < num; i++){
   myAngle += Math.random()*0.4 - 0.2;
   endX = startX + (int)(Math.cos(myAngle)*len);
   endY = startY - (int)(Math.sin(myAngle)*len);
-  stroke(0,0,0);
   strokeWeight(3);
   line(startX, startY, endX, endY);
   startX = endX;
   startY = endY;
+
   //System.out.print(i);
   }
-
+  if (num > 3){
+      c = new Cluster(num-6, endX, endY, b); // initial number of segments in the tendril and starting (x,y) coordinate
+      c.show();
+    }
  }
 }
 //
